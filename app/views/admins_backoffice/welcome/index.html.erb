@@ -1,2 +1,8 @@
 <h1>AdminsBackoffice::Welcome#index</h1>
 <p>Find me in app/views/admins_backoffice/welcome/index.html.erb</p>
+
+<% if admin_signed_in? %>
+  <%= current_admin.email %> | <%= link_to "Sair", destroy_admin_session_path, method: :delete %>
+<% else %>
+  <p>Inicie uma sessão</p>
+<% end %>
