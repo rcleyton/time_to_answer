@@ -30,7 +30,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <%= image_tag "img.jpg", class: "img-circle profile_img", alt: "..." %>
+                <%= image_tag "profile.png", class: "img-circle profile_img", alt: "..." %>
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -175,13 +175,14 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <%= image_tag "img.jpg", alt: "" %>Gentelella
+                    <%= image_tag "profile.png", alt: "" %>
+                    <%= current_user.email %>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li>
-                      <%= link_to "Sair" do %> 
-                        <i class="fa fa-sign-out pull-right"></i>Sair
+                      <%= link_to destroy_user_session_path, method: :delete do %> 
+                        <i class="fa fa-sign-out pull-right"></i> Sair
                       <% end %>
                     </li>
                   </ul>
@@ -264,7 +265,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Fixed Sidebar <small> Just add class <strong>menu_fixed</strong></small></h3>
+                <%= yield %>
               </div>
             </div>
           </div>
