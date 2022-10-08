@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admins_backoffice do
-    get 'admins/index'
-  end
   namespace :site do
     get 'welcome/index'
   end
@@ -13,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admins_backoffice do
     get 'welcome/index'
+    resources :admins, only: %i[ index edit update ]
   end
   
   devise_for :users
